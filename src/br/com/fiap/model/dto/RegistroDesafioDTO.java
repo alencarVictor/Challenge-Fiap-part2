@@ -38,4 +38,13 @@ public class RegistroDesafioDTO {
 
     public int getIdDesafio() {return idDesafio;}
     public void setIdDesafio(int idDesafio) {this.idDesafio = idDesafio;}
+
+    //metodo de logica de negocio
+    public double calcularPontuacaoFinal() {
+        if (this.pontosGanhos == null) {
+            return 0.0;
+        }
+        double multiplicador = (this.bonusMultiplicador != null) ? this.bonusMultiplicador : 1.0;
+        return this.pontosGanhos * multiplicador;
+    }
 }

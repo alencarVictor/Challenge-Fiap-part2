@@ -49,4 +49,12 @@ public class DesafioDTO {
     public void setIdBadgeExclusivo(Integer idBadgeExclusivo) {
         this.idBadgeExclusivo = idBadgeExclusivo;
     }
+
+    //metodo de logica de negocio
+    public boolean estaExpirado() {
+        if (this.dataFim == null) {
+            return false; // sem data de fim = nunca expira
+        }
+        return LocalDate.now().isAfter(this.dataFim);
+    }
 }
