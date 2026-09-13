@@ -6,24 +6,20 @@ import br.com.fiap.model.dto.UsuarioDTO;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 public class UsuarioController {
 
-    public String inserirUsuario(int idUsuario, String nome, String email, String senha, LocalDate dataCadastro,
-                                 String cidade, int idAvatar, int ofensivaAtual, int maiorOfensiva, LocalDate dataUltimaAcao) throws SQLException {
+    public String inserirUsuario(int idUsuario, String nome, String email, String senha,
+                                 String cidade, int idAvatar, int ofensivaAtual) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
         UsuarioDTO usuario = new UsuarioDTO();
         usuario.setIdUsuario(idUsuario);
         usuario.setNome(nome);
         usuario.setEmail(email);
         usuario.setSenha(senha);
-        usuario.setDataCadastro(dataCadastro);
         usuario.setCidade(cidade);
         usuario.setIdAvatar(idAvatar);
         usuario.setOfensivaAtual(ofensivaAtual);
-        usuario.setMaiorOfensiva(maiorOfensiva);
-        usuario.setDataUltimaAcao(dataUltimaAcao);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(con);
         String resultado = usuarioDAO.inserir(usuario);
@@ -32,20 +28,17 @@ public class UsuarioController {
         return resultado;
     }
 
-    public String alterarUsuario(int idUsuario, String nome, String email, String senha, LocalDate dataCadastro,
-                                 String cidade, int idAvatar, int ofensivaAtual, int maiorOfensiva, LocalDate dataUltimaAcao) throws SQLException {
+    public String alterarUsuario(int idUsuario, String nome, String email, String senha,
+                                 String cidade, int idAvatar, int ofensivaAtual) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
         UsuarioDTO usuario = new UsuarioDTO();
         usuario.setIdUsuario(idUsuario);
         usuario.setNome(nome);
         usuario.setEmail(email);
         usuario.setSenha(senha);
-        usuario.setDataCadastro(dataCadastro);
         usuario.setCidade(cidade);
         usuario.setIdAvatar(idAvatar);
         usuario.setOfensivaAtual(ofensivaAtual);
-        usuario.setMaiorOfensiva(maiorOfensiva);
-        usuario.setDataUltimaAcao(dataUltimaAcao);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(con);
         String resultado = usuarioDAO.alterar(usuario);
