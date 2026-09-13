@@ -56,7 +56,7 @@ public class AvatarDAO implements IDAO {
             ps.setString(1, avatar.getNome());
             ps.setInt(2, avatar.getNivelAtual());
             ps.setDouble(3, avatar.getXpAtual());
-            ps.setDouble(4,  avatar.getIdAvatar());
+            ps.setInt(4,  avatar.getIdAvatar());
             if (ps.executeUpdate() > 0){
                 return "Alterado com sucesso";
 

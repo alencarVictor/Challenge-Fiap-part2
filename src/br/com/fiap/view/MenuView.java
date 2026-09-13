@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class MenuView {
 
-    public static void main(String[] args) {
+     static void main(String[] args) {
         String[] entidades = {"Avatar", "Badge", "Usuario"};
         int entidadeEscolhida;
 

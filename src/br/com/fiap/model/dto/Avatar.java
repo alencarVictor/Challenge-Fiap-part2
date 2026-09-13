@@ -24,14 +24,4 @@ public class Avatar {
     public void setXpAtual(double xpAtual) {this.xpAtual = xpAtual;
     }
 
-    //metodos de logica de negocio
-    public void ganharXp(double xp) {
-        if (xp > 0) {
-            this.xpAtual += xp;
-        }
-    }
-
-    public boolean podeSubirNivel(double xpNecessarioProximoNivel) {
-        return this.xpAtual >= xpNecessarioProximoNivel;
-    }
 }
