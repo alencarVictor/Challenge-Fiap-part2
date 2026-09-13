@@ -2,7 +2,7 @@ package br.com.fiap.controller;
 
 import br.com.fiap.model.dao.BadgeDAO;
 import br.com.fiap.model.dao.ConnectionFactory;
-import br.com.fiap.model.dto.BadgeDTO;
+import br.com.fiap.model.dto.Badge;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,7 +11,7 @@ public class BadgeController {
 
     public String inserirBadge(int idBadge, String nome, String tipo, String descricao) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        BadgeDTO badge = new BadgeDTO();
+        Badge badge = new Badge();
         badge.setIdBadge(idBadge);
         badge.setNome(nome);
         badge.setTipo(tipo);
@@ -26,7 +26,7 @@ public class BadgeController {
 
     public String alterarBadge(int idBadge, String nome, String tipo, String descricao) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        BadgeDTO badge = new BadgeDTO();
+        Badge badge = new Badge();
         badge.setIdBadge(idBadge);
         badge.setNome(nome);
         badge.setTipo(tipo);
@@ -41,7 +41,7 @@ public class BadgeController {
 
     public String excluirBadge(int idBadge) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        BadgeDTO badge = new BadgeDTO();
+        Badge badge = new Badge();
         badge.setIdBadge(idBadge);
 
         BadgeDAO badgeDAO = new BadgeDAO(con);
@@ -53,7 +53,7 @@ public class BadgeController {
 
     public String listarUmBadge(int idBadge) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        BadgeDTO badge = new BadgeDTO();
+        Badge badge = new Badge();
         badge.setIdBadge(idBadge);
 
         BadgeDAO badgeDAO = new BadgeDAO(con);

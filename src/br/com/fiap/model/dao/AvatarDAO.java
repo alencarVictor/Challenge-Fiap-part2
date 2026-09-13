@@ -2,7 +2,7 @@ package br.com.fiap.model.dao;
 
 
 
-import br.com.fiap.model.dto.AvatarDTO;
+import br.com.fiap.model.dto.Avatar;
 import br.com.fiap.model.interfaces.IDAO;
 
 import java.sql.Connection;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class AvatarDAO implements IDAO {
     //import
     private Connection con;
-    private AvatarDTO avatar;
+    private Avatar avatar;
 
     //construtor com passagem de parametro
     public AvatarDAO(Connection con) {
@@ -26,7 +26,7 @@ public class AvatarDAO implements IDAO {
 
     //metodo da classe
     public String inserir(Object object){
-        avatar = (AvatarDTO) object; // Conversao implicita
+        avatar = (Avatar) object; // Conversao implicita
         String sql = "insert into t_avatar(id_avatar,nome,nivel_atual,xp_atual) values(?,?,?,?)";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -47,7 +47,7 @@ public class AvatarDAO implements IDAO {
         }
     }
     public String alterar(Object object){
-        avatar = (AvatarDTO) object; // Conversao implicita
+        avatar = (Avatar) object; // Conversao implicita
         String sql = "update t_avatar set nome=?,nivel_atual=?, xp_atual=? where id_avatar=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -71,7 +71,7 @@ public class AvatarDAO implements IDAO {
     }
 
     public String excluir(Object object){
-        avatar = (AvatarDTO) object; // Conversao implicita
+        avatar = (Avatar) object; // Conversao implicita
         String sql = "delete from  t_avatar where id_avatar=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -90,7 +90,7 @@ public class AvatarDAO implements IDAO {
     }
 
     public String listarUm(Object object){
-        avatar = (AvatarDTO) object; // Conversao implicita
+        avatar = (Avatar) object; // Conversao implicita
         String sql = "select * from t_avatar where id_avatar=?";
         //try-with-resources(descarta objeto ps e rs)
         try(PreparedStatement ps = getCon().prepareStatement(sql))

@@ -1,7 +1,7 @@
 package br.com.fiap.model.dao;
 
 
-import br.com.fiap.model.dto.UsuarioDTO;
+import br.com.fiap.model.dto.Usuario;
 import br.com.fiap.model.interfaces.IDAO;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class UsuarioDAO implements IDAO {
     //import
     private Connection con;
-    private UsuarioDTO usuario;
+    private Usuario usuario;
 
     //construtor com passagem de parametro
     public UsuarioDAO(Connection con) {
@@ -23,7 +23,7 @@ public class UsuarioDAO implements IDAO {
     public Connection getCon() {return con;}
 
     public String inserir(Object object){
-        usuario = (UsuarioDTO) object; // Conversao implicita
+        usuario = (Usuario) object; // Conversao implicita
         String sql = "insert into t_usuario(id_usuario ,nome,email ,senha,cidade,id_avatar,ofensiva_atual) values(?,?,?,?,?,?,?)";
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
             ps.setInt(1, usuario.getIdUsuario());
@@ -47,7 +47,7 @@ public class UsuarioDAO implements IDAO {
     }
 
     public String alterar(Object object){
-        usuario = (UsuarioDTO) object; // Conversao implicita
+        usuario = (Usuario) object; // Conversao implicita
         String sql = "update t_usuario set nome=?, email=?, senha=?,  cidade=?, id_avatar=?, ofensiva_atual=? where id_usuario=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -72,7 +72,7 @@ public class UsuarioDAO implements IDAO {
     }
 
     public String excluir(Object object){
-        usuario = (UsuarioDTO) object; // Conversao implicita
+        usuario = (Usuario) object; // Conversao implicita
         String sql = "delete from t_usuario where id_usuario=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -91,7 +91,7 @@ public class UsuarioDAO implements IDAO {
     }
 
     public String listarUm(Object object){
-        usuario = (UsuarioDTO) object; // Conversao implicita
+        usuario = (Usuario) object; // Conversao implicita
         String sql = "select * from t_usuario where id_usuario=?";
         //try-with-resources(descarta objeto ps e rs)
         try(PreparedStatement ps = getCon().prepareStatement(sql))

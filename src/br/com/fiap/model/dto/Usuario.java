@@ -1,8 +1,6 @@
 package br.com.fiap.model.dto;
 
-import java.time.LocalDate;
-
-public class UsuarioDTO {
+public class Usuario {
 
     //atributos
     private int idUsuario;
@@ -17,7 +15,7 @@ public class UsuarioDTO {
 
 
     //construtor vazio
-    public UsuarioDTO() {
+    public Usuario() {
     }
 
 

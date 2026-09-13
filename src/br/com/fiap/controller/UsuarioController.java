@@ -2,7 +2,7 @@ package br.com.fiap.controller;
 
 import br.com.fiap.model.dao.UsuarioDAO;
 import br.com.fiap.model.dao.ConnectionFactory;
-import br.com.fiap.model.dto.UsuarioDTO;
+import br.com.fiap.model.dto.Usuario;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ public class UsuarioController {
     public String inserirUsuario(int idUsuario, String nome, String email, String senha,
                                  String cidade, int idAvatar, int ofensivaAtual) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        UsuarioDTO usuario = new UsuarioDTO();
+        Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
         usuario.setNome(nome);
         usuario.setEmail(email);
@@ -31,7 +31,7 @@ public class UsuarioController {
     public String alterarUsuario(int idUsuario, String nome, String email, String senha,
                                  String cidade, int idAvatar, int ofensivaAtual) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        UsuarioDTO usuario = new UsuarioDTO();
+        Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
         usuario.setNome(nome);
         usuario.setEmail(email);
@@ -49,7 +49,7 @@ public class UsuarioController {
 
     public String excluirUsuario(int idUsuario) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        UsuarioDTO usuario = new UsuarioDTO();
+        Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(con);
@@ -61,7 +61,7 @@ public class UsuarioController {
 
     public String listarUmUsuario(int idUsuario) throws SQLException {
         Connection con = ConnectionFactory.abrirConexao();
-        UsuarioDTO usuario = new UsuarioDTO();
+        Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
 
         UsuarioDAO usuarioDAO = new UsuarioDAO(con);

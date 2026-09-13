@@ -1,6 +1,6 @@
 package br.com.fiap.model.dto;
 
-public class BadgeDTO {
+public class Badge {
 
     //atributos
     private int idBadge;
@@ -9,7 +9,7 @@ public class BadgeDTO {
     private String descricao;
 
     //construtor vazio
-    public BadgeDTO() {
+    public Badge() {
     }
 
     //getters e setters

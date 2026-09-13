@@ -1,6 +1,6 @@
 package br.com.fiap.model.dto;
 
-public class AvatarDTO {
+public class Avatar {
     //atributos
     private int idAvatar;
     private String nome;
@@ -8,7 +8,7 @@ public class AvatarDTO {
     private double xpAtual;
 
     //construtor vazio
-    public AvatarDTO() {
+    public Avatar() {
     }
 
     public int getIdAvatar() {return idAvatar;}

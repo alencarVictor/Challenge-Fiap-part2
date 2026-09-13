@@ -1,7 +1,7 @@
 package br.com.fiap.model.dao;
 
 
-import br.com.fiap.model.dto.BadgeDTO;
+import br.com.fiap.model.dto.Badge;
 import br.com.fiap.model.interfaces.IDAO;
 
 import java.sql.Connection;
@@ -13,7 +13,7 @@ public class BadgeDAO implements IDAO {
 
     //import
     private Connection con;
-    private BadgeDTO badge;
+    private Badge badge;
 
     //construtor com passagem de parametro
     public BadgeDAO(Connection con) {
@@ -25,7 +25,7 @@ public class BadgeDAO implements IDAO {
 
     //metodo da classe
     public String inserir(Object object){
-        badge = (BadgeDTO) object; // Conversao implicita
+        badge = (Badge) object; // Conversao implicita
         String sql = "insert into t_badge( id_badge ,nome,tipo, descricao) values(?,?,?,?)";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -46,7 +46,7 @@ public class BadgeDAO implements IDAO {
         }
     }
     public String alterar(Object object){
-        badge = (BadgeDTO) object; // Conversao implicita
+        badge = (Badge) object; // Conversao implicita
         String sql = "update t_badge set nome=?,tipo=?, descricao=? where id_badge=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -71,7 +71,7 @@ public class BadgeDAO implements IDAO {
     }
 
     public String excluir(Object object){
-        badge = (BadgeDTO) object; // Conversao implicita
+        badge = (Badge) object; // Conversao implicita
         String sql = "delete from  t_badge where id_badge=?";
         //try-with-resources
         try (PreparedStatement ps =  getCon().prepareStatement(sql)){
@@ -90,7 +90,7 @@ public class BadgeDAO implements IDAO {
     }
 
     public String listarUm(Object object){
-        badge = (BadgeDTO) object; // Conversao implicita
+        badge = (Badge) object; // Conversao implicita
         String sql = "select * from t_badge where id_badge=?";
         //try-with-resources(descarta objeto ps e rs)
         try(PreparedStatement ps = getCon().prepareStatement(sql))
